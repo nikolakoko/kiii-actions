@@ -2,9 +2,9 @@ name: Linter and docker workflow
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 env:
   DOCKER_IMAGE: nikolajkoko/kiii-nginx-webpage
@@ -24,7 +24,7 @@ jobs:
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: "main"
+          DEFAULT_BRANCH: "master"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   docker-build-and-push:
     needs: run-lint
